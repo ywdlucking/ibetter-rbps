@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Import;
  * @author ywd
  *
  */
-@Configuration
+//@Configuration
 //TODO 注意，由于MapperScannerConfigurer执行的比较早，所以必须有下面的注解
 //@AutoConfigureAfter(MyBatisConfig.class)
-@Import(MyBatisConfig.class)
+//@Import(MyBatisConfig.class)
 public class MyBatisMapperScannerConfig {
 	
 	@Bean
