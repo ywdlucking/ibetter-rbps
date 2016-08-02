@@ -14,8 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="iconCls" column="iconCls"/>
 	</resultMap>
 	
-	<select id="getAuthsByParentId" resultMap="AuthResult">
-		select * from t_auth where parentId = #{parentId}
+	<select id="getAuthsByParentId" resultMap="AuthResult" parameterType="Integer">
+		select * from t_auth where parentId=#{parentId}
 	</select>
 	
 	

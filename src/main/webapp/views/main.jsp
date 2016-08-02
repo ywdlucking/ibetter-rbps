@@ -5,16 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>系统主界面</title>
-<link rel="stylesheet" type="text/css" href="jquery-easyui-1.3.3/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="jquery-easyui-1.3.3/themes/icon.css">
-<script type="text/javascript" src="jquery-easyui-1.3.3/jquery.min.js"></script>
-<script type="text/javascript" src="jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/jquery-easyui-1.3.3/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/jquery-easyui-1.3.3/themes/icon.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/jquery-easyui-1.3.3/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#tree").tree({
 			lines:true,
-			url:'auth?action=menu&parentId=-1',
+			url:'main/getAuthTree?parentId=-1',
 			onLoadSuccess:function(){
 				$("#tree").tree('expandAll');
 			}	
@@ -27,7 +27,7 @@
 <div style="padding: 0px;margin: 0px;background-color: #E0ECFF;">
 <table>
 	<tr>
-		<td><img src="images/mainlogo.png"/></td>
+		<td><img src="${pageContext.request.contextPath }/resources/images/mainlogo.png"/></td>
 		<td valign="bottom">欢迎：${currentUser.userName }</td>
 	</tr>
 </table>
@@ -44,7 +44,7 @@
 <ul id="tree" class="easyui-tree"></ul>
 </div>
 <div region="south" style="height: 25px;padding: 5px;" align="center">
-	版权所有 2013 Java知识分享网 <a href="http://www.java1234.com" target="_blank">www.java1234.com</a>
+	版权所有 2016 土豆说 <a href="http://www.ylovey.cc" target="_blank">www.ylovey.cc</a>
 </div>
 </body>
 </html>

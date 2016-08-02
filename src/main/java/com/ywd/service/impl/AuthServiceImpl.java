@@ -16,7 +16,7 @@ public class AuthServiceImpl implements AuthService{
 	private AuthDao authDao;
 
 	@Override
-	public List<Auth> getAuthsByParentId(String parentId) {
+	public List<Auth> getAuthsByParentId(Integer parentId) {
 		return authDao.getAuthsByParentId(parentId);
 	}
 

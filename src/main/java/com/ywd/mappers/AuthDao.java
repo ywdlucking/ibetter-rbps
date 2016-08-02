@@ -6,6 +6,6 @@ import com.ywd.entity.Auth;
 
 public interface AuthDao {
 	
-	public List<Auth> getAuthsByParentId(String parentId);
+	public List<Auth> getAuthsByParentId(Integer parentId);
 
 }

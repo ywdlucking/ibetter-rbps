@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywd.mappers.UserDao">
+
+	<resultMap type="User" id="UserResult">
+		<result property="userId" column="userId"/>
+		<result property="userName" column="userName"/>
+		<result property="password" column="password"/>
+		<result property="userType" column="userType"/>
+		<result property="roleId" column="roleId"/>
+		<result property="userDescription" column="userDescription"/>
+	</resultMap>
+	
+	<select id="getUserByName" resultMap="UserResult" parameterType="String">
+		select * from t_user where userName=#{userName}
+	</select>
+	
+	<select id="findUser" resultMap="UserResult" parameterType="User">
+		select * from t_user where userName=#{userName} and password=#{password}
+	</select>
+</mapper> 

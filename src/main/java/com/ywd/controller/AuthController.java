@@ -22,27 +22,28 @@ public class AuthController {
 	@Autowired
 	private AuthService authService;
 	
-	@RequestMapping(value="/getAuthTree", method=RequestMethod.GET)
+	@RequestMapping(value="/getAuthTree", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String getAuthTree(@RequestParam("parentId")String parentId) throws Exception {	
-		List<TreeModel> authsByParentId = getAuthsByParentId(parentId);
+		List<TreeModel> authsByParentId = getAuthsByParentId(Integer.valueOf(parentId));
 		Gson gson = new Gson();
 		String json = gson.toJson(authsByParentId);
-		System.out.println(json);
 		return json;
 	}
 	
-	public List<TreeModel> getAuthsByParentId(String parentId) {
+	public List<TreeModel> getAuthsByParentId(Integer parentId) {
 		List<TreeModel> treeModels = new ArrayList<TreeModel>();
 		List<Auth> authList = authService.getAuthsByParentId(parentId);
 		for (Auth auth : authList) {
 			TreeModel treeModel = new TreeModel();
 			treeModel.setAuth(auth);
 			if("open".equals(treeModel.getState())){
+				treeModels.add(treeModel);
 				continue;
 			}else {
-				treeModel.setChildren(getAuthsByParentId(String.valueOf(treeModel.getId())));
+				treeModel.setChildren(getAuthsByParentId(treeModel.getId()));
 			}
+			treeModels.add(treeModel);
 		}
 		return treeModels;
 	}
