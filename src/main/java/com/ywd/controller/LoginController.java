@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ywd.entity.Role;
 import com.ywd.entity.User;
+import com.ywd.service.RoleService;
 import com.ywd.service.UserService;
 import com.ywd.util.StringUtil;
 
@@ -19,6 +21,9 @@ public class LoginController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RoleService roleService;
 
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(User user, Model model, HttpServletRequest request)throws Exception {
@@ -41,7 +46,9 @@ public class LoginController {
 			model.addAttribute("error", "用户名或密码错误！");
 			return "login";
 		}
+		Role role = roleService.findByRoleId(findUser.getRoleId());
 		session.setAttribute("currentUser", findUser);
+		session.setAttribute("role", role);
 		return "main";
 	}
 }

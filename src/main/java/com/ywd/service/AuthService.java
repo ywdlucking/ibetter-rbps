@@ -6,5 +6,5 @@ import com.ywd.entity.Auth;
 
 public interface AuthService {
 	
-	public List<Auth> getAuthsByParentId(Integer parentId);
+	public List<Auth> getAuthsByParentId(Integer parentId, String authIds);
 }

@@ -9,24 +9,6 @@ public class Auth {
 	private String authDescription;
 	private String state;
 	private String iconCls;
-	
-	
-	
-	public Auth() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	public Auth(String authName, String authPath, String authDescription,
-			String iconCls) {
-		super();
-		this.authName = authName;
-		this.authPath = authPath;
-		this.authDescription = authDescription;
-		this.iconCls = iconCls;
-	}
-
 
 	public int getAuthId() {
 		return authId;
